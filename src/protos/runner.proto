@@ -54,7 +54,7 @@ message RunTaskRequest {
 
 message Project {
     string name = 1;
-    string path = 2;
+    optional string path = 2;
     optional string type = 3;
     optional string branch = 4;
 }

@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import mlab_pyprotos.runner_pb2 as runner__pb2
+import runner_pb2 as runner__pb2
 
 GRPC_GENERATED_VERSION = '1.64.1'
 GRPC_VERSION = grpc.__version__
