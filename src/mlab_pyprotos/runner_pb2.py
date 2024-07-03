@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0crunner.proto\x12\x06runner\"\x12\n\x10GetRunnerRequest\"#\n\x11GetRunnerResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"\x11\n\x0fStopTaskRequest\"\x12\n\x10StopTaskResponse\"\x13\n\x11RemoveTaskRequest\"\x14\n\x12RemoveTaskResponse\"\xa9\x01\n\x11\x43reateTaskRequest\x12\x0e\n\x06job_id\x18\x01 \x01(\t\x12\x14\n\x0c\x64\x61taset_name\x18\x02 \x01(\t\x12\x12\n\nmodel_name\x18\x03 \x01(\t\x12\x19\n\x0cmodel_branch\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x1b\n\x0e\x64\x61taset_branch\x18\x05 \x01(\tH\x01\x88\x01\x01\x42\x0f\n\r_model_branchB\x11\n\x0f_dataset_branch\"\x14\n\x12\x43reateTaskResponse\"\x1b\n\x19GetTaskEnvironmentRequest\"\x1c\n\x1aGetTaskEnvironmentResponse\"\x10\n\x0eRunTaskRequest\"\x11\n\x0fRunTaskResponse\"f\n\x0c\x42ytesContent\x12\x11\n\tfile_size\x18\x01 \x01(\x03\x12\x0e\n\x06\x62uffer\x18\x02 \x01(\x0c\x12\x13\n\x0breaded_byte\x18\x03 \x01(\x05\x12\x1e\n\x04info\x18\x04 \x01(\x0b\x32\x10.runner.FileInfo\"\xbc\x01\n\nTaskResult\x12\x11\n\tresult_id\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12#\n\x05\x66iles\x18\x03 \x03(\x0b\x32\x14.runner.BytesContent\x12 \n\x07metrics\x18\x04 \x03(\x0b\x32\x0f.runner.Metrics\x12\x10\n\x08pkg_name\x18\x05 \x01(\t\x12\x1d\n\x10pretrained_model\x18\x06 \x01(\tH\x00\x88\x01\x01\x42\x13\n\x11_pretrained_model\"3\n\x08\x46ileInfo\x12\x10\n\x08\x66ileName\x18\x01 \x01(\t\x12\x15\n\rfileExtension\x18\x02 \x01(\t\"&\n\x07Metrics\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x15\n\x13SubmitResultRequest\"\x16\n\x14SubmitResultResponse2\x8f\x04\n\x06Runner\x12\x41\n\nget_runner\x12\x18.runner.GetRunnerRequest\x1a\x19.runner.GetRunnerResponse\x12>\n\tstop_task\x12\x17.runner.StopTaskRequest\x1a\x18.runner.StopTaskResponse\x12\x44\n\x0bremove_task\x12\x19.runner.RemoveTaskRequest\x1a\x1a.runner.RemoveTaskResponse\x12R\n\x17\x63reate_task_environment\x12\x19.runner.CreateTaskRequest\x1a\x1a.runner.CreateTaskResponse0\x01\x12]\n\x14get_task_environment\x12!.runner.GetTaskEnvironmentRequest\x1a\".runner.GetTaskEnvironmentResponse\x12=\n\x08run_task\x12\x16.runner.RunTaskRequest\x1a\x17.runner.RunTaskResponse0\x01\x12J\n\rsubmit_result\x12\x1b.runner.SubmitResultRequest\x1a\x1c.runner.SubmitResultResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0crunner.proto\x12\x06runner\"\x12\n\x10GetRunnerRequest\"#\n\x11GetRunnerResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"\x11\n\x0fStopTaskRequest\"\x12\n\x10StopTaskResponse\"\x13\n\x11RemoveTaskRequest\"\x14\n\x12RemoveTaskResponse\"e\n\x11\x43reateTaskRequest\x12\x0e\n\x06job_id\x18\x01 \x01(\t\x12 \n\x07\x64\x61taset\x18\x02 \x01(\x0b\x32\x0f.runner.Project\x12\x1e\n\x05model\x18\x03 \x01(\x0b\x32\x0f.runner.Project\"\x14\n\x12\x43reateTaskResponse\"\x1b\n\x19GetTaskEnvironmentRequest\"\x1c\n\x1aGetTaskEnvironmentResponse\"\xe1\x01\n\x0eRunTaskRequest\x12\x0e\n\x06job_id\x18\x01 \x01(\t\x12\x0f\n\x07task_id\x18\x02 \x01(\t\x12\x11\n\ttask_name\x18\x05 \x01(\t\x12\n\n\x02\x61t\x18\x03 \x01(\t\x12\x15\n\rtrained_model\x18\x07 \x01(\t\x12\x0f\n\x07user_id\x18\x04 \x01(\t\x12\x13\n\x0bresults_dir\x18\x06 \x01(\t\x12\x10\n\x08\x62\x61se_dir\x18\x08 \x01(\t\x12\x1e\n\x05model\x18\t \x01(\x0b\x32\x0f.runner.Project\x12 \n\x07\x64\x61taset\x18\n \x01(\x0b\x32\x0f.runner.Project\"S\n\x07Project\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x13\n\x06\x62ranch\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\t\n\x07_branch\"\x11\n\x0fRunTaskResponse\"f\n\x0c\x42ytesContent\x12\x11\n\tfile_size\x18\x01 \x01(\x03\x12\x0e\n\x06\x62uffer\x18\x02 \x01(\x0c\x12\x13\n\x0breaded_byte\x18\x03 \x01(\x05\x12\x1e\n\x04info\x18\x04 \x01(\x0b\x32\x10.runner.FileInfo\"\xbc\x01\n\nTaskResult\x12\x11\n\tresult_id\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12#\n\x05\x66iles\x18\x03 \x03(\x0b\x32\x14.runner.BytesContent\x12 \n\x07metrics\x18\x04 \x03(\x0b\x32\x0f.runner.Metrics\x12\x10\n\x08pkg_name\x18\x05 \x01(\t\x12\x1d\n\x10pretrained_model\x18\x06 \x01(\tH\x00\x88\x01\x01\x42\x13\n\x11_pretrained_model\"3\n\x08\x46ileInfo\x12\x10\n\x08\x66ileName\x18\x01 \x01(\t\x12\x15\n\rfileExtension\x18\x02 \x01(\t\"&\n\x07Metrics\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x15\n\x13SubmitResultRequest\"\x16\n\x14SubmitResultResponse2\x8f\x04\n\x06Runner\x12\x41\n\nget_runner\x12\x18.runner.GetRunnerRequest\x1a\x19.runner.GetRunnerResponse\x12>\n\tstop_task\x12\x17.runner.StopTaskRequest\x1a\x18.runner.StopTaskResponse\x12\x44\n\x0bremove_task\x12\x19.runner.RemoveTaskRequest\x1a\x1a.runner.RemoveTaskResponse\x12R\n\x17\x63reate_task_environment\x12\x19.runner.CreateTaskRequest\x1a\x1a.runner.CreateTaskResponse0\x01\x12]\n\x14get_task_environment\x12!.runner.GetTaskEnvironmentRequest\x1a\".runner.GetTaskEnvironmentResponse\x12=\n\x08run_task\x12\x16.runner.RunTaskRequest\x1a\x17.runner.RunTaskResponse0\x01\x12J\n\rsubmit_result\x12\x1b.runner.SubmitResultRequest\x1a\x1c.runner.SubmitResultResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,30 +33,32 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_REMOVETASKREQUEST']._serialized_end=139
   _globals['_REMOVETASKRESPONSE']._serialized_start=141
   _globals['_REMOVETASKRESPONSE']._serialized_end=161
-  _globals['_CREATETASKREQUEST']._serialized_start=164
-  _globals['_CREATETASKREQUEST']._serialized_end=333
-  _globals['_CREATETASKRESPONSE']._serialized_start=335
-  _globals['_CREATETASKRESPONSE']._serialized_end=355
-  _globals['_GETTASKENVIRONMENTREQUEST']._serialized_start=357
-  _globals['_GETTASKENVIRONMENTREQUEST']._serialized_end=384
-  _globals['_GETTASKENVIRONMENTRESPONSE']._serialized_start=386
-  _globals['_GETTASKENVIRONMENTRESPONSE']._serialized_end=414
-  _globals['_RUNTASKREQUEST']._serialized_start=416
-  _globals['_RUNTASKREQUEST']._serialized_end=432
-  _globals['_RUNTASKRESPONSE']._serialized_start=434
-  _globals['_RUNTASKRESPONSE']._serialized_end=451
-  _globals['_BYTESCONTENT']._serialized_start=453
-  _globals['_BYTESCONTENT']._serialized_end=555
-  _globals['_TASKRESULT']._serialized_start=558
-  _globals['_TASKRESULT']._serialized_end=746
-  _globals['_FILEINFO']._serialized_start=748
-  _globals['_FILEINFO']._serialized_end=799
-  _globals['_METRICS']._serialized_start=801
-  _globals['_METRICS']._serialized_end=839
-  _globals['_SUBMITRESULTREQUEST']._serialized_start=841
-  _globals['_SUBMITRESULTREQUEST']._serialized_end=862
-  _globals['_SUBMITRESULTRESPONSE']._serialized_start=864
-  _globals['_SUBMITRESULTRESPONSE']._serialized_end=886
-  _globals['_RUNNER']._serialized_start=889
-  _globals['_RUNNER']._serialized_end=1416
+  _globals['_CREATETASKREQUEST']._serialized_start=163
+  _globals['_CREATETASKREQUEST']._serialized_end=264
+  _globals['_CREATETASKRESPONSE']._serialized_start=266
+  _globals['_CREATETASKRESPONSE']._serialized_end=286
+  _globals['_GETTASKENVIRONMENTREQUEST']._serialized_start=288
+  _globals['_GETTASKENVIRONMENTREQUEST']._serialized_end=315
+  _globals['_GETTASKENVIRONMENTRESPONSE']._serialized_start=317
+  _globals['_GETTASKENVIRONMENTRESPONSE']._serialized_end=345
+  _globals['_RUNTASKREQUEST']._serialized_start=348
+  _globals['_RUNTASKREQUEST']._serialized_end=573
+  _globals['_PROJECT']._serialized_start=575
+  _globals['_PROJECT']._serialized_end=658
+  _globals['_RUNTASKRESPONSE']._serialized_start=660
+  _globals['_RUNTASKRESPONSE']._serialized_end=677
+  _globals['_BYTESCONTENT']._serialized_start=679
+  _globals['_BYTESCONTENT']._serialized_end=781
+  _globals['_TASKRESULT']._serialized_start=784
+  _globals['_TASKRESULT']._serialized_end=972
+  _globals['_FILEINFO']._serialized_start=974
+  _globals['_FILEINFO']._serialized_end=1025
+  _globals['_METRICS']._serialized_start=1027
+  _globals['_METRICS']._serialized_end=1065
+  _globals['_SUBMITRESULTREQUEST']._serialized_start=1067
+  _globals['_SUBMITRESULTREQUEST']._serialized_end=1088
+  _globals['_SUBMITRESULTRESPONSE']._serialized_start=1090
+  _globals['_SUBMITRESULTRESPONSE']._serialized_end=1112
+  _globals['_RUNNER']._serialized_start=1115
+  _globals['_RUNNER']._serialized_end=1642
 # @@protoc_insertion_point(module_scope)

@@ -29,10 +29,8 @@ message RemoveTaskResponse {}
 
 message CreateTaskRequest {
     string job_id = 1;
-    string dataset_name = 2;
-    string model_name = 3;
-    optional string model_branch = 4;
-    optional string dataset_branch = 5;
+    Project dataset = 2;
+    Project model = 3;
 }
 
 message CreateTaskResponse {}
@@ -41,7 +39,25 @@ message GetTaskEnvironmentRequest {}
 
 message GetTaskEnvironmentResponse {}
 
-message RunTaskRequest {}
+message RunTaskRequest {
+    string job_id = 1;
+    string task_id = 2;
+    string task_name = 5;
+    string at = 3;
+    string trained_model = 7;
+    string user_id = 4;
+    string results_dir = 6;
+    string base_dir = 8;
+    Project model = 9;
+    Project dataset = 10;
+}
+
+message Project {
+    string name = 1;
+    string path = 3;
+    string type = 4;
+    optional string branch = 2;
+}
 
 message RunTaskResponse {
     // stream logging files or if the task is completed return results
