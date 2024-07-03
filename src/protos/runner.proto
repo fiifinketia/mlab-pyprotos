@@ -8,7 +8,7 @@ service Runner {
     rpc remove_task (RemoveTaskRequest) returns (RemoveTaskResponse);
     rpc create_task_environment (CreateTaskRequest) returns (stream CreateTaskResponse);
     rpc get_task_environment (GetTaskEnvironmentRequest) returns (GetTaskEnvironmentResponse);
-    rpc run_task (RunTaskRequest) returns (stream RunTaskResponse);
+    rpc run_task (RunTaskRequest) returns (RunTaskResponse);
     rpc submit_result (SubmitResultRequest) returns (SubmitResultResponse);
 }
 
@@ -42,21 +42,21 @@ message GetTaskEnvironmentResponse {}
 message RunTaskRequest {
     string job_id = 1;
     string task_id = 2;
-    string task_name = 5;
-    string at = 3;
-    string trained_model = 7;
+    string task_name = 3;
     string user_id = 4;
-    string results_dir = 6;
-    string base_dir = 8;
-    Project model = 9;
-    Project dataset = 10;
+    string results_dir = 5;
+    string base_dir = 6;
+    string rpc_url = 7;
+    Project model = 8;
+    Project dataset = 9;
+    optional string trained_model = 10;
 }
 
 message Project {
     string name = 1;
-    string path = 3;
-    string type = 4;
-    optional string branch = 2;
+    string path = 2;
+    optional string type = 3;
+    optional string branch = 4;
 }
 
 message RunTaskResponse {
