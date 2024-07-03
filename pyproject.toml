@@ -6,7 +6,7 @@ authors = [
     {name = "disal", email = "disal@admin.git"},
 ]
 
-requires-python = "==3.12.*"
+requires-python = "==3.12"
 readme = "README.md"
 license = {text = "MIT"}
 dependencies = [
