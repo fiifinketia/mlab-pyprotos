@@ -8,11 +8,6 @@ authors = [
 
 readme = "README.md"
 license = {text = "MIT"}
-dependencies = [
-    "grpcio-tools>=1.64.1",
-    "grpc-tools>=1.0.0",
-    "grpcio>=1.64.1",
-]
 
 
 [tool.pdm]
