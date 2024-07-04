@@ -64,7 +64,7 @@ class RunnerStub(object):
                 request_serializer=runner__pb2.GetTaskEnvironmentRequest.SerializeToString,
                 response_deserializer=runner__pb2.GetTaskEnvironmentResponse.FromString,
                 _registered_method=True)
-        self.run_task = channel.unary_unary(
+        self.run_task = channel.unary_stream(
                 '/runner.Runner/run_task',
                 request_serializer=runner__pb2.RunTaskRequest.SerializeToString,
                 response_deserializer=runner__pb2.RunTaskResponse.FromString,
@@ -149,7 +149,7 @@ def add_RunnerServicer_to_server(servicer, server):
                     request_deserializer=runner__pb2.GetTaskEnvironmentRequest.FromString,
                     response_serializer=runner__pb2.GetTaskEnvironmentResponse.SerializeToString,
             ),
-            'run_task': grpc.unary_unary_rpc_method_handler(
+            'run_task': grpc.unary_stream_rpc_method_handler(
                     servicer.run_task,
                     request_deserializer=runner__pb2.RunTaskRequest.FromString,
                     response_serializer=runner__pb2.RunTaskResponse.SerializeToString,
@@ -316,7 +316,7 @@ class Runner(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(
+        return grpc.experimental.unary_stream(
             request,
             target,
             '/runner.Runner/run_task',

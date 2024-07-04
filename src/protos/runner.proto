@@ -8,7 +8,7 @@ service Runner {
     rpc remove_task (RemoveTaskRequest) returns (RemoveTaskResponse);
     rpc create_task_environment (CreateTaskRequest) returns (stream CreateTaskResponse);
     rpc get_task_environment (GetTaskEnvironmentRequest) returns (GetTaskEnvironmentResponse);
-    rpc run_task (RunTaskRequest) returns (RunTaskResponse);
+    rpc run_task (RunTaskRequest) returns (stream RunTaskResponse);
     rpc submit_result (SubmitResultRequest) returns (SubmitResultResponse);
 }
 
@@ -61,10 +61,10 @@ message Project {
 
 message RunTaskResponse {
     // stream logging files or if the task is completed return results
-    // oneof response {
-    //     BytesContent log = 1;
-    //     TaskResult result = 2;
-    // }
+    oneof response {
+        bytes line = 1;
+        TaskResult result = 2;
+    }
 }
 
 message BytesContent {
