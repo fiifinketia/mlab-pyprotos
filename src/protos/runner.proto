@@ -70,12 +70,11 @@ message RunTaskResponse {
 message BytesContent {
     int64 file_size = 1;
     bytes buffer = 2;
-    int32 readed_byte = 3;
-    FileInfo info = 4;
+    FileInfo info = 3;
 }
 
 message TaskResult {
-    string result_id = 1;
+    string task_id = 1;
     string status = 2;
     repeated BytesContent files = 3;
     repeated Metrics metrics = 4;
@@ -84,8 +83,8 @@ message TaskResult {
 }
 
 message FileInfo{
-    string fileName = 1;
-    string fileExtension = 2;
+    string name = 1;
+    string extension = 2;
 }
 
 message Metrics {
