@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import mlab_pyprotos.runner_pb2 as runner__pb2
+import runner_pb2 as runner__pb2
 
 GRPC_GENERATED_VERSION = '1.64.1'
 GRPC_VERSION = grpc.__version__
@@ -54,7 +54,7 @@ class RunnerStub(object):
                 request_serializer=runner__pb2.RemoveTaskRequest.SerializeToString,
                 response_deserializer=runner__pb2.RemoveTaskResponse.FromString,
                 _registered_method=True)
-        self.create_task_environment = channel.unary_stream(
+        self.create_task_environment = channel.unary_unary(
                 '/runner.Runner/create_task_environment',
                 request_serializer=runner__pb2.CreateTaskRequest.SerializeToString,
                 response_deserializer=runner__pb2.CreateTaskResponse.FromString,
@@ -139,7 +139,7 @@ def add_RunnerServicer_to_server(servicer, server):
                     request_deserializer=runner__pb2.RemoveTaskRequest.FromString,
                     response_serializer=runner__pb2.RemoveTaskResponse.SerializeToString,
             ),
-            'create_task_environment': grpc.unary_stream_rpc_method_handler(
+            'create_task_environment': grpc.unary_unary_rpc_method_handler(
                     servicer.create_task_environment,
                     request_deserializer=runner__pb2.CreateTaskRequest.FromString,
                     response_serializer=runner__pb2.CreateTaskResponse.SerializeToString,
@@ -262,7 +262,7 @@ class Runner(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(
+        return grpc.experimental.unary_unary(
             request,
             target,
             '/runner.Runner/create_task_environment',
