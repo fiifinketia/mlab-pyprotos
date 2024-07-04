@@ -6,7 +6,7 @@ service Runner {
     rpc get_runner (GetRunnerRequest) returns (GetRunnerResponse);
     rpc stop_task (StopTaskRequest) returns (StopTaskResponse);
     rpc remove_task (RemoveTaskRequest) returns (RemoveTaskResponse);
-    rpc create_task_environment (CreateTaskRequest) returns (stream CreateTaskResponse);
+    rpc create_task_environment (CreateTaskRequest) returns (CreateTaskResponse);
     rpc get_task_environment (GetTaskEnvironmentRequest) returns (GetTaskEnvironmentResponse);
     rpc run_task (RunTaskRequest) returns (stream RunTaskResponse);
     rpc submit_result (SubmitResultRequest) returns (SubmitResultResponse);
