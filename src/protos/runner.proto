@@ -89,7 +89,7 @@ message FileInfo{
 
 message Metrics {
     string name = 1;
-    string value = 2;
+    string metric = 2;
 }
 
 message SubmitResultRequest {}
