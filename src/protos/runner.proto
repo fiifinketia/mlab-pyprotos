@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package runner;
 
+import "google/protobuf/any.proto";
+
+
 service Runner {
     rpc get_runner (GetRunnerRequest) returns (GetRunnerResponse);
     rpc stop_task (StopTaskRequest) returns (StopTaskResponse);
@@ -89,7 +92,7 @@ message FileInfo{
 
 message Metrics {
     string name = 1;
-    string value = 2;
+    google.protobuf.Any value = 2;
 }
 
 message SubmitResultRequest {}
