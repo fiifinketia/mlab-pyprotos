@@ -49,8 +49,8 @@ class RunnerStub(object):
                 request_serializer=runner__pb2.StopTaskRequest.SerializeToString,
                 response_deserializer=runner__pb2.StopTaskResponse.FromString,
                 _registered_method=True)
-        self.remove_task = channel.unary_unary(
-                '/runner.Runner/remove_task',
+        self.remove_task_environment = channel.unary_unary(
+                '/runner.Runner/remove_task_environment',
                 request_serializer=runner__pb2.RemoveTaskRequest.SerializeToString,
                 response_deserializer=runner__pb2.RemoveTaskResponse.FromString,
                 _registered_method=True)
@@ -91,7 +91,7 @@ class RunnerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def remove_task(self, request, context):
+    def remove_task_environment(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -134,8 +134,8 @@ def add_RunnerServicer_to_server(servicer, server):
                     request_deserializer=runner__pb2.StopTaskRequest.FromString,
                     response_serializer=runner__pb2.StopTaskResponse.SerializeToString,
             ),
-            'remove_task': grpc.unary_unary_rpc_method_handler(
-                    servicer.remove_task,
+            'remove_task_environment': grpc.unary_unary_rpc_method_handler(
+                    servicer.remove_task_environment,
                     request_deserializer=runner__pb2.RemoveTaskRequest.FromString,
                     response_serializer=runner__pb2.RemoveTaskResponse.SerializeToString,
             ),
@@ -225,7 +225,7 @@ class Runner(object):
             _registered_method=True)
 
     @staticmethod
-    def remove_task(request,
+    def remove_task_environment(request,
             target,
             options=(),
             channel_credentials=None,
@@ -238,7 +238,7 @@ class Runner(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/runner.Runner/remove_task',
+            '/runner.Runner/remove_task_environment',
             runner__pb2.RemoveTaskRequest.SerializeToString,
             runner__pb2.RemoveTaskResponse.FromString,
             options,
